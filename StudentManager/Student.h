@@ -32,7 +32,7 @@ public:
 
     friend std::istream& operator>>(std::istream& is,
         Student& stu); 
-    friend std::istream& getline(std::istream& is,
+    friend std::istream& readline(std::istream& is,
         Student& stu);   
 
     friend std::ostream& operator<<(std::ostream& os,
