@@ -1,0 +1,6 @@
+# ninja log v6
+23	384	7869919558271001	CMakeFiles/app.dir/src/use.cpp.obj	40e7852669f54762
+17	387	7869919558209547	CMakeFiles/app.dir/src/main.cpp.obj	168a062b0415d3b5
+10	389	7869919558148134	CMakeFiles/core.dir/src/Student.cpp.obj	a2bc59f7d3ad8a5d
+389	435	7869919561929142	core.lib	388841f7a8bc2a1
+435	728	7869919562388435	app.exe	3fd0ff45c194a025
