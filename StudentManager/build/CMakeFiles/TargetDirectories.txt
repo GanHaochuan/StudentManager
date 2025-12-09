@@ -1,2 +1,4 @@
+D:/StudentManager/StudentManager/build/CMakeFiles/core.dir
+D:/StudentManager/StudentManager/build/CMakeFiles/app.dir
 D:/StudentManager/StudentManager/build/CMakeFiles/ALL_BUILD.dir
 D:/StudentManager/StudentManager/build/CMakeFiles/ZERO_CHECK.dir

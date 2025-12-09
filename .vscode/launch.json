@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/StudentManager/StudentManager",
-      "program": "d:/StudentManager/StudentManager/build/Debug/outDebug",
+      "cwd": "d:/StudentManager/StudentManager/src",
+      "program": "d:/StudentManager/StudentManager/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

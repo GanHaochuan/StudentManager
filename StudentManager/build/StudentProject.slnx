@@ -9,10 +9,19 @@
 	</Configurations>
 	<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0c9550cb-6c8f-3a59-a17a-be19b78a3207" DefaultStartup="true">
 		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="app.vcxproj"/>
+		<BuildDependency Project="core.vcxproj"/>
 		<Build Solution="Debug|*" Project="false"/>
 		<Build Solution="Release|*" Project="false"/>
 		<Build Solution="MinSizeRel|*" Project="false"/>
 		<Build Solution="RelWithDebInfo|*" Project="false"/>
 	</Project>
 	<Project Path="ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="8d7e8690-0ee2-337e-81ce-1e1f7b664c4f"/>
+	<Project Path="app.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="de88054b-de39-31ae-930f-e99984bb3421">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="core.vcxproj"/>
+	</Project>
+	<Project Path="core.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="0b617d42-cc60-3fbb-9589-1686841e03ea">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
 </Solution>
