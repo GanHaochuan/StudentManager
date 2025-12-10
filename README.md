@@ -156,6 +156,7 @@ Done.
 
 本项目遵循良好的Git实践，具有清晰的提交历史：
 
+    add：添加了一些注释
     upload：尝试上传项目到Github
     add：安装CMake Tools，重新运行程序
     fix：在终端运行程序并修改CMakeLists.txt
