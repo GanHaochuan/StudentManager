@@ -18,29 +18,27 @@
    - 格式化输出学生成绩信息
    - 自动分页显示成绩列表（每5个成绩一行）
 
-
 ## 项目目录结构
 
-```
+```text
 StudentManager/
 │  CMakeLists.txt
 │  StudentManager.vcxproj
 │  StudentManager.vcxproj.filters
 │  StudentManager.vcxproj.user
 │
-├─build
-├─include
+├─build/
+├─include/
 │      Student.h
 │
-└─src
+└─src/
     │  main.cpp
     │  Student.cpp
     │  use.cpp
     │
-    └─build
-        └─Debug
+    └─build/
+        └─Debug/
 ```
-
 
 ## 构建与运行方式
 
@@ -54,6 +52,7 @@ StudentManager/
 # 1. 克隆项目（如果从GitHub下载）
 git clone https://github.com/GanHaochuan/StudentManager.git
 cd StudentManager
+
 # 2. 创建构建目录
 mkdir build
 cd build
@@ -61,15 +60,16 @@ cd build
 # 3. 使用CMake生成构建文件
 cmake ..
 
-# 4. 编译项目
+# 4. 编译项目 (Linux/Mac 使用 make, Windows 使用 MSBuild 或打开解决方案)
 make
 
 # 5. 运行程序
 Debug./app
+```
 
 ### 运行示例
 
-```
+```text
 Please enter the student's name: Mike
 Please enter 5 quiz scores:
 100
@@ -118,7 +118,7 @@ Done.
 - **位置**: `include/Student.h`, `src/Student.cpp`
 - **职责**: 封装学生基本信息和成绩操作
 - **设计特点**:
-  - 使用`std::valarray<double>`存储成绩，提供高效的数值计算
+  - 使用 `std::valarray<double>` 存储成绩，提供高效的数值计算
   - 实现运算符重载（`operator[]`）方便成绩访问
   - 提供多种构造函数以适应不同的初始化场景
   - 使用友元函数处理输入输出，保持封装性
@@ -151,30 +151,27 @@ Done.
 - 使用友元函数处理特定输入输出需求
 - 在保持封装性的同时提供灵活接口
 
-
 ## 开发记录
 
 本项目遵循良好的Git实践，具有清晰的提交历史：
 
-    add：添加了一些注释
-    upload：尝试上传项目到Github
-    add：安装CMake Tools，重新运行程序
-    fix：在终端运行程序并修改CMakeLists.txt
-    move: 添加文件夹scr与include，移动build文件夹
-    add: CMakeLists.txt
-    add: main.cpp
-    add: use.cpp
-    add: Student.cpp
-    add: 添加项目文件
-    add: .gitattributes、.gitignore 和 README.md
-
-
+- `add`: 添加了一些注释
+- `upload`: 尝试上传项目到Github
+- `add`: 安装CMake Tools，重新运行程序
+- `fix`: 在终端运行程序并修改CMakeLists.txt
+- `move`: 添加文件夹scr与include，移动build文件夹
+- `add`: CMakeLists.txt
+- `add`: main.cpp
+- `add`: use.cpp
+- `add`: Student.cpp
+- `add`: 添加项目文件
+- `add`: .gitattributes、.gitignore 和 README.md
 
 ## 注意事项
 
-1. 输入成绩时使用空格分隔
-2. 程序会自动处理换行符，确保输入流正确
-3. 成绩数量在编译时通过常量配置，可根据需要修改
+1. 输入成绩时使用空格分隔或回车分隔均可。
+2. 程序会自动处理换行符，确保输入流正确。
+3. 成绩数量在编译时通过常量配置，可根据需要修改源码。
 
 ## 未来扩展方向
 
@@ -183,4 +180,91 @@ Done.
 3. 添加异常处理机制
 4. 支持动态调整学生和科目数量
 5. 添加图形用户界面
+
+
+# 附：std::valarray 类简介
+
+`std::valarray` 是 C++ 标准库中的一个模板类，专门用于**数值计算**。它的设计目标是提供高效的数值数组操作，类似于数学中的向量运算。
+
+## 主要特点
+
+### 1. **数值优化**
+- 专门为数值计算优化
+- 支持向量化操作
+- 适合科学计算和数学运算
+
+### 2. **运算符重载**
+支持对整个数组进行数学运算：
+
+```cpp
+std::valarray<double> a = {1.0, 2.0, 3.0};
+std::valarray<double> b = {4.0, 5.0, 6.0};
+
+// 逐元素运算
+auto c = a + b;     // {5.0, 7.0, 9.0}
+auto d = a * 2.0;   // {2.0, 4.0, 6.0}
+auto e = sin(a);    // 对每个元素求正弦
+```
+
+### 3. **成员函数**
+
+#### 常用构造函数：
+```cpp
+std::valarray<int> v1;           // 空数组
+std::valarray<int> v2(10);       // 10个元素，值初始化为0
+std::valarray<int> v3(5, 10);    // 10个元素，每个都是5
+std::valarray<int> v4 = {1,2,3}; // 初始化列表
+std::valarray<int> v5(v4);       // 拷贝构造
+```
+
+#### 常用成员函数：
+```cpp
+v.size()      // 返回元素个数
+v.sum()       // 求和（在你的项目中用于计算总分）
+v.min()       // 返回最小值
+v.max()       // 返回最大值
+v.resize(n)   // 调整大小
+v.shift(n)    // 移位
+v.cshift(n)   // 循环移位
+v.apply(func) // 对每个元素应用函数
+```
+
+## 在项目中的应用
+
+### 1. **存储成绩数组**
+```cpp
+// Student.h 中的定义
+typedef std::valarray<double> ArrayDb;
+ArrayDb scores;  // 用于存储学生成绩
+```
+
+### 2. **计算总分**
+```cpp
+// Student.cpp 中的 Average() 函数
+double Student::Average() const {
+    if (scores.size() > 0)
+        return scores.sum() / scores.size();  // 使用 sum() 计算总分
+    else
+        return 0;
+}
+```
+
+### 3. **支持下标访问**
+```cpp
+// 通过重载 operator[] 提供访问
+double& Student::operator[](int i) {
+    return scores[i];  // 直接使用 valarray 的下标操作
+}
+```
+
+## 与 std::vector 的比较
+
+| 特性 | std::valarray | std::vector |
+|------|---------------|-------------|
+| **设计目的** | 数值计算 | 通用动态数组 |
+| **运算符重载** | 丰富（+,-,*,/,等） | 只有比较运算符 |
+| **数学函数** | 内置（sin, cos, sqrt等） | 无，需要算法库 |
+| **内存管理** | 连续存储，可重新分配 | 连续存储，动态增长 |
+| **性能** | 数值计算优化 | 通用目的 |
+| **适用场景** | 科学计算、数学运算 | 通用数据存储 |
 
