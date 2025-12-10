@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 额外项目： CS106B Assignments 1–7 Summary
 
 ---
@@ -192,8 +191,3 @@
 * 图搜索（DFS）
 * 二叉堆（优先队列）
 * 哈希表（Linear Probing / Robin Hood）
-
-
-=======
-# StudentManager
->>>>>>> af7eacf9b3c0dfd785710d18570d50084e3fb20b
