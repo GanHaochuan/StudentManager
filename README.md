@@ -49,7 +49,7 @@ StudentManager/
 ### 构建步骤
 
 ```bash
-# 1. 克隆项目（如果从GitHub下载）
+# 1. 克隆项目
 git clone https://github.com/GanHaochuan/StudentManager.git
 cd StudentManager
 
