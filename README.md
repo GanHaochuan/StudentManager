@@ -60,11 +60,11 @@ cd build
 # 3. 使用CMake生成构建文件
 cmake ..
 
-# 4. 编译项目 (Linux/Mac 使用 make, Windows 使用 MSBuild 或打开解决方案)
-make
+# 4. 编译项目
+cmake --build . --config Release
 
 # 5. 运行程序
-Debug./app
+.\Release\app.exe
 ```
 
 ### 运行示例
