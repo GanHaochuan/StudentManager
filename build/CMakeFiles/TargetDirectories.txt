@@ -1,4 +1,0 @@
-D:/StudentManager/build/CMakeFiles/core.dir
-D:/StudentManager/build/CMakeFiles/app.dir
-D:/StudentManager/build/CMakeFiles/edit_cache.dir
-D:/StudentManager/build/CMakeFiles/rebuild_cache.dir
